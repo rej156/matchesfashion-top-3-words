@@ -1,0 +1,12 @@
+{
+  "name": "matchesfashion-top_3_words",
+  "version": "1.0.0",
+  "description": "Matchesfashion technical test",
+  "main": "index.js",
+  "author": "Eric Juta",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^25.1.0",
+    "typescript": "^3.7.5"
+  }
+}
