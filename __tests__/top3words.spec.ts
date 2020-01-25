@@ -27,6 +27,12 @@ describe("Top 3 Words function", () => {
 
     expect(top3Words(input)).toEqual(["won't", "wont"]);
   });
+
+  it("should return no words if there are not any in the provided input", () => {
+    const input = "";
+
+    expect(top3Words(input)).toEqual([]);
+  });
 });
 
 describe("sanitizeInput", () => {
