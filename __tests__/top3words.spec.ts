@@ -34,7 +34,7 @@ describe("sanitizeInput", () => {
     expect(
       sanitizeInput(`
     a
-    ! ? ; ,
+    ! ? ; , //
     lol
     `)
     ).toEqual(["a", "lol"]);
