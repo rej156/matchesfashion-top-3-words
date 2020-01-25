@@ -34,3 +34,8 @@ const top3Words = (input: string): string[] => {
 };
 
 export default top3Words;
+export {
+  sanitizeInput,
+  recurringWordsByCount,
+  sortWordsByCount 
+}
