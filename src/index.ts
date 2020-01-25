@@ -19,7 +19,7 @@ const recurringWordsByCount = (sanitizedWords: string[]): { [word: string]: numb
 const sortWordsByCount = (sortedWords: { [word: string]: number }): string[] =>
   Object.keys(sortedWords).sort((current, next) => sortedWords[next] - sortedWords[current]);
 
-const top3Words = (input: string): Array<string> => {
+const top3Words = (input: string): string[] => {
   // TypeScript is unsound :(
   if (typeof input === "string") {
     const sanitizedInput = sanitizeInput(input);
