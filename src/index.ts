@@ -19,14 +19,15 @@ const recurringWordsByCount = (sanitizedWords: string[]): { [word: string]: numb
 const sortWordsByCount = (sortedWords: { [word: string]: number }): string[] =>
   Object.keys(sortedWords).sort((current, next) => sortedWords[next] - sortedWords[current]);
 
+const pipe = <T>(...fns: any) => (input: any): T =>
+  fns.reduce((current: any, nextFunction: Function) => {
+    return nextFunction(current);
+  }, input);
+
 const top3Words = (input: string): string[] => {
   // TypeScript is unsound :(
   if (typeof input === "string") {
-    const sanitizedInput = sanitizeInput(input);
-    const recurringWordsByCountObject = recurringWordsByCount(sanitizedInput);
-    const sortedWordsByCount = sortWordsByCount(recurringWordsByCountObject);
-
-    return sortedWordsByCount.slice(0, 3);
+    return pipe<string[]>(sanitizeInput, recurringWordsByCount, sortWordsByCount)(input).slice(0, 3);
   } else {
     throw new Error("Please input a string to process and return the top 3 words!");
   }
